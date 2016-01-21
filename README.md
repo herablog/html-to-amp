@@ -8,10 +8,10 @@ Transform the normal html to the amp html.
 ## How to Use
 
 ```JavaScript
-import ampBuilder from 'amp-builder';
+import htmlToAmp from 'html-to-amp';
 
 const html = '<img src="a.png" width="100" height="100" alt="an image" />';
-const result = ampBuilder(html)
+const result = htmlToAmp(html)
   .toAmpImg()
   .html(); // <amp-img src="a.png" width="100" height="100" alt="an image" />
 ```
