@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb/base",
+
+  "env": {
+    "mocha": true
+  },
+
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "object-shorthand": [2, "properties"],
+    "no-console": [1],
+    "indent": [2, 2, {"SwitchCase": 0}]
+  }
+
+}
