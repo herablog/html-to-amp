@@ -35,6 +35,9 @@ export function ampBuilder(html = '', opts = {}) {
   builder.extends(plugins.AmpInstagram);
   builder.extends(plugins.AmpYouTube);
   builder.extends(plugins.AmpVine);
+
+  builder.extends(plugins.AmpInlineStyles);
+  builder.extends(plugins.AmpDisallowedTags);
   return builder;
 }
 

@@ -8,6 +8,9 @@ import AmpInstagram from './instagram';
 import AmpYouTube from './youtube';
 import AmpVine from './vine';
 
+import AmpInlineStyles from './styles';
+import AmpDisallowedTags from './disallowed-tags';
+
 export default {
   AmpImg,
   AmpVideo,
@@ -17,5 +20,8 @@ export default {
   AmpTwitter,
   AmpInstagram,
   AmpYouTube,
-  AmpVine
+  AmpVine,
+
+  AmpInlineStyles,
+  AmpDisallowedTags
 };
