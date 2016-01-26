@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run eslint && npm run mocha",
-    "eslint": "./node_modules/eslint/bin/eslint.js lib/",
+    "eslint": "./node_modules/eslint/bin/eslint.js src/",
     "mocha": "./node_modules/mocha/bin/mocha --compilers js:babel-register --recursive tests/",
     "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },

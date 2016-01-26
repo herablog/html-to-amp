@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { AmpBuilder, ampBuilder } from '../lib/amp-builder';
+import { AmpBuilder, ampBuilder } from '../src/amp-builder';
 
 const html = '<div></div>';
 const opts = { a: 1 };
@@ -68,5 +68,7 @@ describe('ampBuilder', () => {
     expect(typeof builder.__proto__.toAmpInstagram).to.equal('function');
     expect(typeof builder.__proto__.toAmpYouTube).to.equal('function');
     expect(typeof builder.__proto__.toAmpVine).to.equal('function');
+    expect(typeof builder.__proto__.removeInlineStyles).to.equal('function');
+    expect(typeof builder.__proto__.removeDisallowedTags).to.equal('function');
   });
 });

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import ampBuilder from '../../lib/amp-builder';
+import ampBuilder from '../../src/amp-builder';
 
 describe('iframe', () => {
   it('changes tag to amp-iframe.', () => {
