@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "./node_modules/eslint/bin/eslint.js lib/",
-    "mocha": "./node_modules/mocha/bin/mocha --compilers js:babel-register --recursive tests/"
+    "mocha": "./node_modules/mocha/bin/mocha --compilers js:babel-register --recursive tests/",
+    "build": "./node_modules/babel-cli/bin/babel.js src --out-dir lib"
   },
   "author": "hara_kazunari",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "cheerio": "^0.19.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.4.5",
     "chai": "^3.4.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.1.0",
