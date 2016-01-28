@@ -1,4 +1,25 @@
-function inlineTags() {
+function removeTags() {
+  const selectors = [
+    'style',
+    'input',
+    'textarea',
+    'select',
+    'option',
+    'form',
+    'embed',
+    'applet',
+    'param',
+    'object',
+    'frameset',
+    'base'
+  ];
+  this.$(selectors.join(',')).each((i, el) => {
+    const $el = this.$(el);
+    $el.remove();
+  });
+}
+
+function replaceInlineTags() {
   const selectors = [
     'font'
   ];
@@ -15,7 +36,11 @@ function inlineTags() {
 export default function () {
   return {
     removeDisallowedTags: () => {
-      inlineTags.bind(this)();
+      removeTags.bind(this)();
+      return this;
+    },
+    replaceDisallowedTags: () => {
+      replaceInlineTags.bind(this)();
       return this;
     }
   };
