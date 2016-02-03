@@ -1,37 +1,38 @@
 export default function () {
   return {
-    toAmpImg: () => {
+    toAmpImg: (opts = {}) => {
       const selectors = [
         'img'
       ];
       this.$(selectors.join(',')).each((i, el) => {
+        const classNameVagueImage = 'amp__vagueimage';
+        const sizeVagueImage = opts.sizeVagueImage || 200;
         const $el = this.$(el);
         const $conainer = this.$('<div>');
         const $ampImg = this.$('<amp-img>');
         const attr = $el.attr();
-        const src = attr.src;
-        const width = attr.width && parseInt(attr.width, 10);
-        const height = attr.height && parseInt(attr.height, 10);
-        const alt = attr.alt;
-        // set attr
-        $ampImg.attr('src', src);
-        if (width && height) {
+        const width = attr.width;
+        const height = attr.height;
+        // set src
+        $ampImg.attr('src', attr.src);
+        // set sizes
+        if (width === '100%') {
           $ampImg
-            .attr('width', width)
-            .attr('height', height);
+            .attr({ width: 100, height: 100, layout: 'responsive' })
+            .addClass(classNameVagueImage);
+        } else if (width && height) {
+          $ampImg.attr({ width: parseInt(width, 10), height: parseInt(height, 10) });
         } else if (width || height) {
-          const size = width || height;
-          $ampImg
-            .attr('width', size)
-            .attr('height', size);
+          const size = (width && parseInt(width, 10)) || (height && parseInt(height, 10));
+          $ampImg.attr({ width: size, height: size }).addClass(classNameVagueImage);
         } else {
-          const size = 200;
           $ampImg
-            .attr('width', size)
-            .attr('height', size);
+            .attr({ width: sizeVagueImage, height: sizeVagueImage })
+            .addClass(classNameVagueImage);
         }
-        if (alt) {
-          $ampImg.attr('alt', alt);
+        // set alt
+        if (attr.alt) {
+          $ampImg.attr('alt', attr.alt);
         }
         $conainer.append($ampImg);
         // replace <img> to <amp-img>
