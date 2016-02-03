@@ -11,7 +11,8 @@ function removeTags() {
     'param',
     'object',
     'frameset',
-    'base'
+    'base',
+    'script'
   ];
   this.$(selectors.join(',')).each((i, el) => {
     const $el = this.$(el);
