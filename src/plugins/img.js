@@ -5,7 +5,7 @@ export default function () {
         'img'
       ];
       this.$(selectors.join(',')).each((i, el) => {
-        const classNameVagueImage = 'amp__vagueimage';
+        const classNameVagueImage = 'amp-img__vague';
         const sizeVagueImage = opts.sizeVagueImage || 200;
         const $el = this.$(el);
         const $conainer = this.$('<div>');
