@@ -20,9 +20,15 @@ export default function () {
             .attr('width', width)
             .attr('height', height);
         } else if (width || height) {
-          const sizes = width || height;
+          const size = width || height;
           $ampImg
-            .attr('sizes', sizes);
+            .attr('width', size)
+            .attr('height', size);
+        } else {
+          const size = 200;
+          $ampImg
+            .attr('width', size)
+            .attr('height', size);
         }
         if (alt) {
           $ampImg.attr('alt', alt);
