@@ -38,6 +38,7 @@ export function ampBuilder(html = '', opts = {}) {
 
   builder.extends(plugins.AmpInlineStyles);
   builder.extends(plugins.AmpDisallowedTags);
+  builder.extends(plugins.AmpDisallowedAttrs);
   return builder;
 }
 

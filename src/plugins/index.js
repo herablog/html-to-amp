@@ -10,6 +10,8 @@ import AmpVine from './vine';
 
 import AmpInlineStyles from './styles';
 import AmpDisallowedTags from './disallowed-tags';
+import AmpDisallowedAttrs from './disallowed-attrs';
+
 
 export default {
   AmpImg,
@@ -23,5 +25,6 @@ export default {
   AmpVine,
 
   AmpInlineStyles,
-  AmpDisallowedTags
+  AmpDisallowedTags,
+  AmpDisallowedAttrs
 };
