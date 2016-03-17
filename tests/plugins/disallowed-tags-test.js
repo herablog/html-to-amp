@@ -3,8 +3,8 @@ import ampBuilder from '../../src/amp-builder';
 
 describe('disallowed-tags', () => {
   it('replaces inline disallowed-tags.', () => {
-    const html = '<font size="1">font</font>';
-    const fixture = '<span>font</span>';
+    const html = '<font color="red"><font size="3">aaa</font></font>';
+    const fixture = '<span><span>aaa</span></span>';
     const builder = ampBuilder(html);
     const result = builder.replaceDisallowedTags().html();
     expect(result).to.equal(fixture);

@@ -24,7 +24,7 @@ function replaceInlineTags() {
   const selectors = [
     'font'
   ];
-  this.$(selectors.join(',')).each((i, el) => {
+  this.$(this.$(selectors.join(',')).get().reverse()).each((i, el) => {
     const $el = this.$(el);
     const $conainer = this.$('<div>');
     const $newEl = this.$('<span>');
