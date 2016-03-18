@@ -41,4 +41,12 @@ describe('img', () => {
     const result = builder.toAmpImg({ sizeVagueImage: 300 }).html();
     expect(result).to.equal(fixture);
   });
+
+  it('removes the element when src attribute cant be found', () => {
+    const html = '<div><img width="100" /></div>';
+    const fixture = '<div></div>';
+    const builder = ampBuilder(html);
+    const result = builder.toAmpImg().html();
+    expect(result).to.equal(fixture);
+  });
 });

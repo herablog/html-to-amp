@@ -1,6 +1,6 @@
 {
   "name": "html-to-amp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Transform the normal html to the amp html.",
   "main": "index.js",
   "scripts": {
