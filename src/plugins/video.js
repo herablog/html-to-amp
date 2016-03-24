@@ -13,9 +13,11 @@ export default function () {
         const attr = $el.attr();
         const width = attr.width;
         const height = attr.height;
+        const $source = $el.find('source');
+        const src = attr.src || $source && $source.attr('src');
         // set src
-        if (attr.src) {
-          $ampVideo.attr('src', attr.src);
+        if (src) {
+          $ampVideo.attr('src', src);
           // set sizes
           if (width === '100%') {
             $ampVideo

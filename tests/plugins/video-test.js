@@ -98,6 +98,14 @@ describe('video', () => {
     expect(result).to.equal(fixture);
   });
 
+  it('uses the first <source> element src value', () => {
+    const html = '<video width="100" height="100"><source src="a.mp4" type="video/mp4"><source src="a.ogg" type="video/ogg"></video>';
+    const fixture = '<amp-video src="a.mp4" width="100" height="100"><source src="a.mp4" type="video/mp4"><source src="a.ogg" type="video/ogg"></amp-video>';
+    const builder = ampBuilder(html);
+    const result = builder.toAmpVideo().html();
+    expect(result).to.equal(fixture);
+  });
+
   it('removes the element when src attribute cant be found', () => {
     const html = '<div><video width="100"></video></div>';
     const fixture = '<div></div>';
