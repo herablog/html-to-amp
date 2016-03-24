@@ -37,7 +37,8 @@ function replaceInlineTags() {
 function replaceBlockTags() {
   const selectors = [
     'fieldset',
-    'legend'
+    'legend',
+    'marquee'
   ];
   this.$(this.$(selectors.join(',')).get().reverse()).each((i, el) => {
     const $el = this.$(el);

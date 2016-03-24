@@ -10,8 +10,8 @@ describe('disallowed-tags', () => {
     expect(result).to.equal(fixture);
   });
   it('replaces disallowed block tags.', () => {
-    const html = '<fieldset><legend><span>aaa</span></legend></fieldset>';
-    const fixture = '<div><div><span>aaa</span></div></div>';
+    const html = '<fieldset><legend><marquee><span>aaa</span></marquee></legend></fieldset>';
+    const fixture = '<div><div><div><span>aaa</span></div></div></div>';
     const builder = ampBuilder(html);
     const result = builder.replaceDisallowedTags().html();
     expect(result).to.equal(fixture);
