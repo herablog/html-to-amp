@@ -34,6 +34,21 @@ function replaceInlineTags() {
   });
 }
 
+function replaceBlockTags() {
+  const selectors = [
+    'fieldset',
+    'legend'
+  ];
+  this.$(this.$(selectors.join(',')).get().reverse()).each((i, el) => {
+    const $el = this.$(el);
+    const $conainer = this.$('<div>');
+    const $newEl = this.$('<div>');
+    $newEl.html($el.html());
+    $conainer.append($newEl);
+    $el.replaceWith($conainer.html());
+  });
+}
+
 export default function () {
   return {
     removeDisallowedTags: () => {
@@ -42,6 +57,7 @@ export default function () {
     },
     replaceDisallowedTags: () => {
       replaceInlineTags.bind(this)();
+      replaceBlockTags.bind(this)();
       return this;
     }
   };
