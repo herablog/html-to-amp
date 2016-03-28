@@ -1,5 +1,5 @@
 function youTubeLinks() {
-  this.$('a[href^="https://www.youtube.com/watch"]').each((i, el) => {
+  this.$('a[href*="//www.youtube.com/watch"]').each((i, el) => {
     const $el = this.$(el);
     const href = $el.attr('href') || '';
     const matched = href.match(/v=(\w+)/);
@@ -16,7 +16,7 @@ function youTubeLinks() {
 }
 
 function youTubeShortenLinks() {
-  this.$('a[href^="https://youtu.be/"]').each((i, el) => {
+  this.$('a[href*="//youtu.be/"]').each((i, el) => {
     const $el = this.$(el);
     const href = $el.attr('href') || '';
     const id = href.split('/')[3];
@@ -32,7 +32,7 @@ function youTubeShortenLinks() {
 }
 
 function youTubeIframe() {
-  this.$('iframe[src^="https://www.youtube.com/embed"]').each((i, el) => {
+  this.$('iframe[src*="//www.youtube.com/embed"]').each((i, el) => {
     const $el = this.$(el);
     const src = $el.attr('src') || '';
     const id = src.split('/')[4];
