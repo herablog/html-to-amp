@@ -3,13 +3,16 @@
   "version": "0.0.8",
   "description": "Transform the normal html to the amp html.",
   "main": "index.js",
+  "engines": {
+    "node": "5.x"
+  },
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/",
     "mocha": "mocha --compilers js:babel-register --recursive tests/",
     "build": "babel src --out-dir lib"
   },
-  "author": "hara_kazunari",
+  "author": "herablog",
   "license": "MIT",
   "dependencies": {
     "babel-preset-es2015": "^6.3.13",
