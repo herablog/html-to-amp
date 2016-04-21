@@ -32,7 +32,11 @@ function youTubeShortenLinks() {
 }
 
 function youTubeIframe() {
-  this.$('iframe[src*="//www.youtube.com/embed"]').each((i, el) => {
+  const selectors = [
+    'iframe[src*="//www.youtube.com/embed"]',
+    'iframe[src*="//www.youtube-nocookie.com/embed"]'
+  ];
+  this.$(selectors.join(',')).each((i, el) => {
     const $el = this.$(el);
     const src = $el.attr('src') || '';
     const id = src.split('/')[4];

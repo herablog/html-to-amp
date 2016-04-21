@@ -25,4 +25,12 @@ describe('YouTube', () => {
     const result = builder.toAmpYouTube().html();
     expect(result).to.equal(fixture);
   });
+
+  it('changes tag when the el has the youtube iframe link (no-cookie).', () => {
+    const html = '<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/3rE4sHJxdBg" frameborder="0" allowfullscreen></iframe>';
+    const fixture = '<amp-youtube width="480" height="270" data-videoid="3rE4sHJxdBg" layout="responsive"></amp-youtube>';
+    const builder = ampBuilder(html);
+    const result = builder.toAmpYouTube().html();
+    expect(result).to.equal(fixture);
+  });
 });
