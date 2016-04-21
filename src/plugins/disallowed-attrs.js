@@ -1,7 +1,9 @@
 function removeAttrs() {
   const attrs = [
     'align',
-    'clear'
+    'clear',
+    'size',
+    'color'
   ];
   const selectors = attrs.map(a => {
     return `[${a}]`;
