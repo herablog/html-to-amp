@@ -1,10 +1,10 @@
 {
   "name": "html-to-amp",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Transform the normal html to the amp html.",
   "main": "index.js",
   "engines": {
-    "node": "5.x"
+    "node": ">=4"
   },
   "scripts": {
     "test": "npm run eslint && npm run mocha",
