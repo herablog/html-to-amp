@@ -24,7 +24,8 @@ function tweetLinks() {
 function tweetEmbed() {
   this.$('blockquote.twitter-tweet').each((i, el) => {
     const $el = this.$(el);
-    const href = $el.find('a[href^="https://twitter.com/"]').attr('href') || '';
+    // Use the last tweet url as link to display, because there are many links in embed content.
+    const href = $el.children('a[href^="https://twitter.com/"]').last().attr('href') || '';
     const id = href.split('/')[5];
     if (id) {
       $el.replaceWith(
