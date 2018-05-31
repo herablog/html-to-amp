@@ -1,3 +1,13 @@
+import url from 'url';
+import path from 'path';
+
+function extractTweetId(href) {
+  // Extract '690077988243836928' from https://twitter.com/nodenpm/status/690077988243836928?ref_src=twsrc
+  const pathname = url.parse(href).pathname || '';
+  const tweetId = path.basename(pathname);
+  return tweetId;
+}
+
 function removeTwitterScripts() {
   this.$('script[src$="platform.twitter.com/widgets.js"]').each((i, el) => {
     this.$(el).remove();
@@ -8,7 +18,7 @@ function tweetLinks() {
   this.$('a[href^="https://twitter.com/"]').each((i, el) => {
     const $el = this.$(el);
     const href = $el.attr('href') || '';
-    const id = href.split('/')[5];
+    const id = extractTweetId(href);
     if (id) {
       $el.replaceWith(
         `<amp-twitter width="486" height="657"
@@ -26,7 +36,7 @@ function tweetEmbed() {
     const $el = this.$(el);
     // Use the last tweet url as link to display, because there are many links in embed content.
     const href = $el.children('a[href^="https://twitter.com/"]').last().attr('href') || '';
-    const id = href.split('/')[5];
+    const id = extractTweetId(href);
     if (id) {
       $el.replaceWith(
         `<amp-twitter width="486" height="657"
