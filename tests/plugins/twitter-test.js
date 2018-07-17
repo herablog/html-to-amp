@@ -10,6 +10,14 @@ describe('twitter', () => {
     expect(result).to.equal(fixture);
   });
 
+  it('does not change tag when the link is not entry.', () => {
+    const html = '<a href="https://twitter.com/nodenpm">Twitter</a>';
+    const fixture = '<a href="https://twitter.com/nodenpm">Twitter</a>';
+    const builder = ampBuilder(html);
+    const result = builder.toAmpTwitter().html();
+    expect(result).to.equal(fixture);
+  });
+
   it('changes tag when the twitter embed.', () => {
     const html = '<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">bentojs-api-email (1.0.0): <a href="https://t.co/kujT9n6i2P">https://t.co/kujT9n6i2P</a> A module written for the bentojs api platform for emails</p>&mdash; npm tweets (@nodenpm) <a href="https://twitter.com/nodenpm/status/690077988243836928">January 21, 2016</a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>';
     const fixture = '<amp-twitter width="486" height="657" data-tweetid="690077988243836928" data-cards="visible" layout="responsive"></amp-twitter>';
