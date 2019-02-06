@@ -5,7 +5,7 @@ function extractTweetId(href) {
   // Extract '690077988243836928' from https://twitter.com/nodenpm/status/690077988243836928?ref_src=twsrc
   const pathname = url.parse(href).pathname || '';
   const tweetId = path.basename(pathname);
-  const isValidTweetId = /\d+/.test(tweetId);
+  const isValidTweetId = /^\d+$/.test(tweetId);
   return isValidTweetId ? tweetId : null;
 }
 
